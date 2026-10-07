@@ -1,0 +1,1255 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Exo 2', sans-serif !important;
+    background:
+        linear-gradient(rgba(2, 5, 20, 0.45), rgba(2, 5, 20, 0.65)),
+        url("images/space-bg.jpg") center / cover fixed;
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+header {
+    text-align: center;
+    padding: 35px 20px 10px;
+}
+
+header h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+
+    background: url("images/space-text.jpg") center / cover;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    filter:
+    drop-shadow(1px 0 0 #050914)
+    drop-shadow(-1px 0 0 #050914)
+    drop-shadow(0 1px 0 #050914)
+    drop-shadow(0 -1px 0 #050914)
+    drop-shadow(0 0 10px rgba(80, 150, 255, 0.7));
+}
+
+header h1 .sun-letter {
+    position: relative;
+
+    color: #ffd76b !important;
+    background: none !important;
+    -webkit-text-fill-color: #ffd76b;
+
+    text-shadow: 0 0 5px #ffd76b, 0 0 10px #ffd76b;
+}
+
+header h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+
+    background: url("images/space-text.jpg") center / cover;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    filter:
+        drop-shadow(1px 0 0 #050914)
+        drop-shadow(-1px 0 0 #050914)
+        drop-shadow(0 1px 0 #050914)
+        drop-shadow(0 -1px 0 #050914)
+        drop-shadow(0 0 10px rgba(80, 150, 255, 0.7));
+}
+
+header h1 .sun-letter {
+    color: #ffd76b !important;
+    -webkit-text-fill-color: #ffd76b;
+    text-shadow:
+        0 0 3px #ffd76b,
+        0 0 6px rgba(255, 215, 107, 0.6);
+}
+
+header h1 .title-rest {
+    filter: drop-shadow(0 0 10px rgba(80, 150, 255, 0.7));
+}
+
+header p {
+    font-size: 18px;
+    background: url("images/space-text.jpg") center / cover;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    filter:
+    drop-shadow(1px 0 0 #050914)
+    drop-shadow(-1px 0 0 #050914)
+    drop-shadow(0 1px 0 #050914)
+    drop-shadow(0 -1px 0 #050914)
+    drop-shadow(0 0 10px rgba(80, 150, 255, 0.7));
+}
+
+/* Солнечная система */
+
+.solar-system {
+    position: relative;
+    width: min(1000px, 95vw);
+    height: 830px;
+    margin: 80px auto 80px;
+}
+
+.sun {
+    position: absolute;
+    left: 50%;
+    top: 52%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s ease;
+}
+
+.sun img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 30px #ffb300);
+}
+
+.sun:hover img {
+    transform: scale(1.15);
+}
+
+.sun span {
+    display: block;
+    margin-top: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sun:hover span {
+    opacity: 1;
+}
+
+/* Запрет выделения и перетаскивания */
+
+body * {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+img,
+a,
+span {
+    -webkit-user-drag: none;
+}
+
+/* Орбиты планет */
+
+.orbit {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border: 1px solid rgba(130, 170, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.orbit-mercury { width: 170px; height: 170px; }
+.orbit-venus { width: 240px; height: 240px; }
+.orbit-earth { width: 320px; height: 320px; }
+.orbit-mars { width: 400px; height: 400px; }
+.orbit-jupiter { width: 500px; height: 500px; }
+.orbit-saturn { width: 610px; height: 610px; }
+.orbit-uranus { width: 720px; height: 720px; }
+.orbit-neptune { width: 830px; height: 830px; }
+
+/* Планеты на орбитах */
+
+.planet {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    pointer-events: auto;
+    z-index: 5;
+}
+
+.planet img {
+    display: block;
+    object-fit: contain;
+    transition: 0.3s;
+    filter: drop-shadow(0 0 8px rgba(255,255,255,.5));
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    pointer-events: none;
+}
+
+.planet span {
+    display: block;
+    margin-top: 5px;
+    font-size: 13px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.planet:hover img {
+    transform: scale(1.3);
+    filter: drop-shadow(0 0 15px white);
+}
+
+.planet:hover span {
+    opacity: 1;
+}
+
+/* Подсветка планет на орбитах */
+
+.mercury img {
+    filter: drop-shadow(0 0 8px rgba(161, 249, 255, 0.6));
+}
+
+.venus img {
+    filter: drop-shadow(0 0 8px rgba(207, 126, 11, 0.6));
+}
+
+.earth img {
+    filter: drop-shadow(0 0 8px rgba(0, 200, 255, 0.6));
+}
+
+.mars img {
+    filter: drop-shadow(0 0 8px rgba(255, 70, 40, 0.6));
+}
+
+.jupiter img {
+    filter: drop-shadow(0 0 8px rgba(220, 170, 110, 0.6));
+}
+
+.saturn img {
+    filter: drop-shadow(0 0 8px rgba(240, 210, 130, 0.6));
+}
+
+.uranus img {
+    filter: drop-shadow(0 0 8px rgba(80, 220, 255, 0.6));
+}
+
+.neptune img {
+    filter: drop-shadow(0 0 8px rgba(70, 100, 255, 0.6));
+}
+
+/* Размеры планет */
+
+.mercury img { width: 28px; height: 28px; position: relative; top: 15px; transform: translateY(-5px); }
+.mercury span {
+    position: relative;
+    margin: 0;
+    top: 12px;
+    margin-left: -15px;
+}
+.venus img { width: 38px; height: 38px; position: relative; top: 12px; transform: translateY(-5px); }
+.venus span {
+    position: relative;
+    margin: 0;
+    top: 12px;
+}
+.earth img { width: 55px; height: 55px; position: relative; top: 12px; transform: translateY(-5px); }
+.earth span {
+    position: relative;
+    margin: 0;
+    top: 12px;
+}
+.mars img { width: 30px; height: 30px; position: relative; top: 12px; transform: translateY(-5px); }
+.mars span {
+    position: relative;
+    margin: 0;
+    top: 0;
+}
+.jupiter img { width: 70px; height: 70px; position: relative; top: 12px; transform: translateY(-6px); }
+.jupiter span {
+    position: relative;
+    margin: 0;
+    top: 12px;
+}
+.saturn img { width: 120px; height: 120px; position: relative; top: 12px; transform: translateY(-5px); }
+.saturn span {
+    position: relative;
+    margin: 0;
+    top: -12px;
+}
+.uranus img { width: 65px; height: 65px; position: relative; top: 12px; transform: translateY(-5px); }
+.uranus span {
+    position: relative;
+    margin: 0;
+    top: -5px;
+}
+.neptune img { width: 40px; height: 40px; position: relative; top: 12px; transform: translateY(-5px) }
+.neptune span {
+    position: relative;
+    margin: 0;
+    top: 12px;
+}
+
+/* Подвал */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #7180aa;
+    font-size: 14px;
+    margin-bottom: 0 !important;
+}
+
+/* Общая страница планеты */
+
+.planet-page {
+    width: min(900px, 90vw);
+    margin: 40px auto;
+    text-align: center;
+}
+
+.planet-big {
+    width: 280px;
+    height: 280px;
+    object-fit: contain;
+    display: block;
+    margin: 20px auto 35px;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* Информационные блоки */
+
+.planet-info {
+    background: rgba(10, 20, 60, 0.75);
+    border: 1px solid rgba(130, 170, 255, 0.35);
+    border-radius: 18px;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 700px;
+    box-shadow: 0 0 25px rgba(50, 100, 255, 0.15);
+}
+
+.planet-info h2 {
+    margin-bottom: 15px;
+    color: #8eb5ff;
+}
+
+.planet-info p {
+    line-height: 1.6;
+    color: #d9e2ff;
+}
+
+.planet-cards {
+    max-width: 900px;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.info-box {
+    background: rgba(10, 20, 60, 0.75);
+    border: 1px solid rgba(130, 170, 255, 0.35);
+    border-radius: 18px;
+    padding: 22px;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.info-box h2 {
+    margin-bottom: 12px;
+    color: #8eb5ff;
+    font-size: 20px;
+}
+
+.info-box p {
+    line-height: 1.6;
+    color: #d9e2ff;
+}
+
+.info-box:hover {
+    transform: translateY(-5px);
+}
+
+/* Кнопка возврата */
+
+.back-button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.22);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Страница Солнца */
+
+body.sun-page {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 170, 0, 0.12) 0%,
+            rgba(255, 170, 0, 0.06) 30%,
+            transparent 70%
+        ),
+        linear-gradient(
+            rgba(2, 5, 20, 0.35),
+            rgba(2, 5, 20, 0.55)
+        ),
+        url("images/space-bg.jpg") center / cover fixed;
+}
+
+body.sun-page .planet-big {
+    filter:
+        drop-shadow(0 0 30px #ffb300)
+        drop-shadow(0 0 60px #ff9900);
+}
+
+body.sun-page .planet-info,
+body.sun-page .info-box {
+    border-color: rgba(255, 200, 0, 0.4);
+    box-shadow:
+        0 0 25px rgba(255, 170, 0, 0.2),
+        0 0 40px rgba(255, 140, 0, 0.15);
+}
+
+body.sun-page .planet-info h2,
+body.sun-page .info-box h2 {
+    color: #f2c76b;
+}
+
+body.sun-page .planet-info p,
+body.sun-page .info-box p {
+    color: #ffe8b0;
+}
+
+body.sun-page .info-box:hover {
+    border-color: #ffd15c;
+    box-shadow:
+        0 0 30px rgba(255, 170, 0, 0.35),
+        0 0 50px rgba(255, 120, 0, 0.2);
+}
+
+body.sun-page .back-button {
+    background: rgba(255, 170, 0, 0.12);
+    border: 1px solid rgba(255, 200, 0, 0.4);
+    box-shadow: 0 0 30px rgba(255, 170, 0, 0.3);
+}
+
+body.sun-page .back-button:hover {
+    background: rgba(255, 170, 0, 0.2);
+    border-color: #ffd15c;
+    box-shadow: 0 0 45px rgba(255, 170, 0, 0.45);
+}
+
+body.sun-page header h1 {
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    color: #ffd76b !important;
+    -webkit-text-fill-color: #ffd76b !important;
+    filter: none !important;
+
+    text-shadow:
+        0 0 4px #ffd76b,
+        0 0 10px rgba(255, 180, 40, 0.7) !important;
+}
+
+body.sun-page header p {
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    color: #ffd76b !important;
+    -webkit-text-fill-color: #ffd76b !important;
+    filter: none !important;
+
+    text-shadow:
+        0 0 4px #ffd76b,
+        0 0 10px rgba(255, 180, 40, 0.6),
+        0 0 18px rgba(255, 160, 30, 0.35) !important;
+}
+
+.sun-letter {
+    color: #ffd76b;
+    background: none;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+
+    text-shadow:
+        0 0 10px rgba(255, 180, 50, 0.9),
+        0 0 20px rgba(255, 220, 100, 0.7),
+        0 0 35px rgba(255, 180, 50, 0.5);
+}
+
+/* Страница Меркурия */
+
+body.mercury-page {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(180, 200, 210, 0.14) 0%,
+            rgba(120, 150, 170, 0.06) 35%,
+            transparent 70%
+        ),
+        linear-gradient(
+            rgba(2, 5, 20, 0.35),
+            rgba(2, 5, 20, 0.55)
+        ),
+        url("images/space-bg.jpg") center / cover fixed;
+}
+
+body.mercury-page .planet-big {
+    width: 280px;
+    height: 280px;
+    filter:
+        drop-shadow(0 0 20px #a9c8d5)
+        drop-shadow(0 0 45px #78b8cc);
+}
+
+body.mercury-page .planet-info,
+body.mercury-page .info-box {
+    border-color: rgba(180, 210, 220, 0.4);
+    box-shadow:
+        0 0 25px rgba(120, 190, 210, 0.2),
+        0 0 40px rgba(100, 170, 200, 0.18);
+}
+
+body.mercury-page .planet-info h2,
+body.mercury-page .facts h2 {
+    color: #9ed0df;
+}
+
+body.mercury-page p {
+    color: #AFCFE0;
+}
+
+body.mercury-page > .planet-page > h1 {
+    color: #b8dce5 !important;
+    -webkit-text-fill-color: #b8dce5 !important;
+    text-shadow:
+        0 0 5px #78bed2,
+        0 0 12px rgba(120, 190, 210, 0.8),
+        0 0 22px rgba(100, 170, 195, 0.5) !important;
+    margin-bottom: 8px;
+}
+
+body.mercury-page > .planet-page > p {
+    color: #9fc5d0 !important;
+    -webkit-text-fill-color: #9fc5d0 !important;
+    font-size: 18px;
+    margin-bottom: 25px;
+    text-shadow:
+        0 0 4px #78bed2,
+        0 0 10px rgba(100, 170, 195, 0.7),
+        0 0 18px rgba(100, 170, 195, 0.4) !important;
+}
+
+body.mercury-page .info-box:hover {
+    border-color: #9ed0df;
+    box-shadow:
+        0 0 30px rgba(120, 190, 210, 0.35),
+        0 0 50px rgba(100, 170, 200, 0.2);
+    transform: translateY(-5px);
+}
+
+/* Анимация кнопки Меркурия */
+
+body.mercury-page .back-button {
+    background: rgba(150, 180, 195, 0.12);
+    border: 1px solid rgba(170, 205, 215, 0.4);
+    box-shadow:
+        0 0 20px rgba(120, 190, 210, 0.2),
+        0 0 35px rgba(150, 180, 195, 0.15);
+}
+
+body.mercury-page .back-button a {
+    color: #c5dce3;
+}
+
+body.mercury-page .back-button:hover {
+    background: rgba(150, 190, 205, 0.2);
+    border-color: #b8dce5;
+    box-shadow:
+        0 0 30px rgba(120, 200, 220, 0.3),
+        0 0 45px rgba(150, 180, 195, 0.25);
+}
+
+/* Страница Венеры */
+
+body.venus-page {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 190, 70, 0.16) 0%,
+            rgba(220, 150, 40, 0.07) 35%,
+            transparent 70%
+        ),
+        linear-gradient(
+            rgba(2, 5, 20, 0.35),
+            rgba(2, 5, 20, 0.55)
+        ),
+        url("images/space-bg.jpg") center / cover fixed;
+}
+
+body.venus-page .planet-big {
+    width: 280px;
+    height: 280px;
+    filter:
+        drop-shadow(0 0 25px #ffd27a)
+        drop-shadow(0 0 55px #e6a83c);
+}
+
+body.venus-page .planet-info,
+body.venus-page .info-box {
+    border-color: rgba(255, 190, 100, 0.4);
+    box-shadow:
+        0 0 25px rgba(255, 170, 70, 0.2),
+        0 0 40px rgba(230, 130, 40, 0.15);
+}
+
+body.venus-page .planet-info h2,
+body.venus-page .info-box h2 {
+    color: #ffc978;
+}
+
+body.venus-page .planet-info p,
+body.venus-page .info-box p {
+    color: #ffe4b5;
+}
+
+body.venus-page .info-box:hover {
+    border-color: #ffc978;
+    box-shadow:
+        0 0 30px rgba(255, 180, 70, 0.35),
+        0 0 50px rgba(220, 120, 30, 0.2);
+}
+
+body.venus-page .back-button {
+    border: 1px solid rgba(255, 190, 100, 0.4);
+    background: rgba(255, 170, 70, 0.12);
+    box-shadow: 0 0 25px rgba(255, 160, 50, 0.2);
+}
+
+body.venus-page .back-button a {
+    color: #ffc978;
+    text-decoration: none;
+}
+
+body.venus-page .back-button:hover {
+    background: rgba(255, 170, 70, 0.2);
+    border-color: #ffc978;
+    box-shadow: 0 0 35px rgba(255, 170, 60, 0.35);
+}
+
+/* Заголовки страницы Венеры */
+
+body.venus-page > .planet-page > h1 {
+    color: #ffc978 !important;
+    -webkit-text-fill-color: #ffc978 !important;
+    text-shadow:
+        0 0 5px #ffc978,
+        0 0 12px rgba(255, 180, 70, 0.8),
+        0 0 22px rgba(220, 120, 30, 0.5) !important;
+    margin-bottom: 15px;
+}
+
+body.venus-page > .planet-page > p {
+    color: #ffe4b5 !important;
+    -webkit-text-fill-color: #ffe4b5 !important;
+    text-shadow:
+        0 0 4px #ffc978,
+        0 0 10px rgba(255, 180, 70, 0.7),
+        0 0 18px rgba(220, 120, 30, 0.4) !important;
+}
+
+/* Страница Земли */
+
+body.earth-page {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(80, 170, 255, 0.12) 0%,
+            rgba(60, 120, 200, 0.05) 35%,
+            transparent 70%
+        ),
+        linear-gradient(
+            rgba(2, 5, 20, 0.35),
+            rgba(2, 5, 20, 0.55)
+        ),
+        url("images/space-bg.jpg") center / cover fixed;
+}
+
+body.earth-page .planet-big {
+    width: 280px;
+    height: 280px;
+    filter:
+        drop-shadow(0 0 20px #00bfff)
+        drop-shadow(0 0 45px #00ff99);
+}
+
+body.earth-page h1 {
+    color: #7fffd4 !important;
+    text-shadow:
+        0 0 10px rgba(0, 212, 255, 0.8),
+        0 0 20px rgba(0, 255, 150, 0.5),
+        0 0 35px rgba(0, 212, 255, 0.3) !important;
+    margin-bottom: 12px;
+}
+
+body.earth-page .planet-description {
+    color: #7fffd4 !important;
+    text-shadow:
+        0 0 8px rgba(0, 212, 255, 0.7),
+        0 0 15px rgba(0, 255, 150, 0.4) !important;
+}
+
+body.earth-page h1,
+body.earth-page .planet-description {
+    color: #7fffd4;
+    text-shadow: 
+        0 0 10px rgba(0, 212, 255, 0.6)
+        0 0 20px rgba(0, 255, 150, 0.3);
+}
+
+body.earth-page p {
+    color: #A8E6D2;
+}
+
+body.earth-page .planet-info,
+body.earth-page .facts,
+body.earth-page .info-box {
+    border-color: rgba(0, 255, 150, 0.35);
+    box-shadow:
+        0 0 20px rgba(0, 212, 255, 0.2),
+        0 0 35px rgba(0, 255, 150, 0.15);
+}
+
+body.earth-page .planet-info h2,
+body.earth-page .facts h2,
+body.earth-page .info-box h2 {
+    color: #00e6b8;
+}
+
+body.earth-page .info-box {
+    border: 1px solid rgba(0, 255, 150, 0.4);
+    box-shadow:
+        0 0 15px rgba(0, 255, 150, 0.2),
+        0 0 30px rgba(0, 180, 255, 0.1);
+}
+
+body.earth-page .info-box:hover {
+    border-color: #00ff99;
+    box-shadow:
+        0 0 20px rgba(0, 212, 255, 0.35),
+        0 0 40px rgba(127, 255, 150, 0.25);
+}
+
+body.earth-page .back-button {
+    background: rgba(0, 212, 255, 0.08);
+    border: 1px solid rgba(0, 255, 150, 0.35);
+}
+
+body.earth-page .back-button:hover {
+    background: rgba(0, 255, 150, 0.12);
+    border-color: #00ff99;
+    box-shadow:
+        0 0 20px rgba(0, 212, 255, 0.3),
+        0 0 35px rgba(0, 255, 150, 0.25);
+}
+
+/* Страница Марса */
+
+body.mars-page {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 80, 40, 0.12) 0%,
+            rgba(180, 50, 30, 0.05) 35%,
+            transparent 70%
+        ),
+        linear-gradient(
+            rgba(15, 3, 2, 0.35),
+            rgba(10, 2, 2, 0.55)
+        ),
+        url("images/space-bg.jpg") center / cover fixed;
+}
+
+body.mars-page .planet-big {
+    width: 280px;
+    height: 280px;
+    filter:
+        drop-shadow(0 0 20px #ff5a36)
+        drop-shadow(0 0 45px #ff2400);
+}
+
+body.mars-page h1 {
+    color: #ff9b82 !important;
+    text-shadow:
+        0 0 10px rgba(255, 80, 40, 0.8),
+        0 0 20px rgba(255, 50, 20, 0.5),
+        0 0 35px rgba(255, 80, 40, 0.3) !important;
+    margin-bottom: 12px;
+}
+
+body.mars-page > .planet-page > p {
+    color: #ffb3a3 !important;
+    text-shadow:
+        0 0 8px rgba(255, 80, 40, 0.7),
+        0 0 15px rgba(255, 50, 20, 0.4);
+}
+
+body.mars-page p {
+    color: #e6b3a3;
+}
+
+body.mars-page .planet-info,
+body.mars-page .facts,
+body.mars-page .info-box {
+    border-color: rgba(255, 80, 40, 0.35);
+    box-shadow:
+        0 0 20px rgba(255, 80, 40, 0.2),
+        0 0 35px rgba(255, 40, 20, 0.15);
+}
+
+body.mars-page .planet-info h2,
+body.mars-page .facts h2,
+body.mars-page .info-box h2 {
+    color: #ff8c72;
+}
+
+body.mars-page .info-box {
+    border: 1px solid rgba(255, 80, 40, 0.4);
+    box-shadow:
+        0 0 15px rgba(255, 80, 40, 0.2),
+        0 0 30px rgba(255, 40, 20, 0.1);
+}
+
+body.mars-page .info-box:hover {
+    border-color: #ff6547;
+    box-shadow:
+        0 0 20px rgba(255, 80, 40, 0.4),
+        0 0 40px rgba(255, 50, 20, 0.3);
+}
+
+body.mars-page .back-button {
+    background: rgba(255, 80, 40, 0.08);
+    border: 1px solid rgba(255, 80, 40, 0.35);
+}
+
+body.mars-page .back-button:hover {
+    background: rgba(255, 80, 40, 0.12);
+    border-color: #ff6547;
+    box-shadow:
+        0 0 20px rgba(255, 80, 40, 0.3),
+        0 0 35px rgba(255, 40, 20, 0.25);
+}
+
+/* Страница Юпитера */
+
+body.jupiter-page {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(210, 150, 80, 0.12) 0%,
+            rgba(150, 90, 40, 0.05) 35%,
+            transparent 70%
+        ),
+        linear-gradient(
+            rgba(15, 7, 2, 0.35),
+            rgba(10, 4, 2, 0.55)
+        ),
+        url("images/space-bg.jpg") center / cover fixed;
+}
+
+body.jupiter-page .planet-big {
+    width: 280px;
+    height: 280px;
+    filter:
+        drop-shadow(0 0 20px #d69c5f)
+        drop-shadow(0 0 45px #b86d2d);
+}
+
+body.jupiter-page h1 {
+    color: #e8b98a !important;
+    text-shadow:
+        0 0 10px rgba(210, 150, 80, 0.8),
+        0 0 20px rgba(190, 110, 50, 0.5),
+        0 0 35px rgba(210, 150, 80, 0.3) !important;
+    margin-bottom: 12px;
+}
+
+body.jupiter-page .planet-description {
+    color: #edc4a0 !important;
+    text-shadow:
+        0 0 8px rgba(210, 150, 80, 0.7),
+        0 0 15px rgba(190, 110, 50, 0.4) !important;
+}
+
+body.jupiter-page p {
+    color: #E7C8AA;
+}
+
+body.jupiter-page > .planet-page > p {
+    color: #edc4a0 !important;
+    text-shadow:
+        0 0 8px rgba(210, 150, 80, 0.7),
+        0 0 15px rgba(190, 110, 50, 0.4);
+}
+
+body.jupiter-page .planet-info,
+body.jupiter-page .info-box {
+    border-color: rgba(210, 150, 80, 0.35);
+    box-shadow:
+        0 0 20px rgba(210, 150, 80, 0.2),
+        0 0 35px rgba(180, 100, 40, 0.15);
+}
+
+body.jupiter-page .planet-info h2,
+body.jupiter-page .info-box h2 {
+    color: #e8b071;
+}
+
+body.jupiter-page .info-box {
+    border: 1px solid rgba(210, 150, 80, 0.4);
+    box-shadow:
+        0 0 15px rgba(210, 150, 80, 0.2),
+        0 0 30px rgba(180, 100, 40, 0.1);
+}
+
+body.jupiter-page .info-box:hover {
+    border-color: #e8a65c;
+    box-shadow:
+        0 0 20px rgba(230, 160, 80, 0.4),
+        0 0 40px rgba(200, 100, 40, 0.3);
+}
+
+body.jupiter-page .back-button {
+    background: rgba(210, 150, 80, 0.08);
+    border: 1px solid rgba(210, 150, 80, 0.35);
+}
+
+body.jupiter-page .back-button:hover {
+    background: rgba(210, 150, 80, 0.12);
+    border-color: #e8a65c;
+    box-shadow:
+        0 0 20px rgba(230, 160, 80, 0.3),
+        0 0 35px rgba(200, 100, 40, 0.25);
+}
+
+/* Страница Сатурна */
+
+body.saturn-page {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(230, 200, 138, 0.12) 0%,
+            rgba(207, 168, 90, 0.05) 35%,
+            transparent 70%
+        ),
+        linear-gradient(
+            rgba(20, 15, 5, 0.35),
+            rgba(12, 8, 2, 0.55)
+        ),
+        url("images/space-bg.jpg") center / cover fixed;
+}
+
+body.saturn-page .planet-big {
+    filter:
+        drop-shadow(0 0 20px #e6c88a)
+        drop-shadow(0 0 45px #cfa85a);
+}
+
+body.saturn-page h1 {
+    color: #f3dfb0 !important;
+    text-shadow:
+        0 0 10px rgba(230, 200, 138, 0.8),
+        0 0 20px rgba(207, 168, 90, 0.5),
+        0 0 35px rgba(230, 200, 138, 0.3) !important;
+    margin-bottom: 15px;
+}
+
+body.saturn-page .planet-description {
+    color: #f0e2bf !important;
+    text-shadow:
+        0 0 8px rgba(230, 200, 138, 0.7),
+        0 0 15px rgba(207, 168, 90, 0.4) !important;
+}
+
+body.saturn-page .planet-info h2,
+body.saturn-page .info-box h2 {
+    color: #e6c88a;
+}
+
+body.saturn-page p {
+    color: #f2dfb3;
+}
+
+body.saturn-page > .planet-page > p {
+    color: #f0e2bf !important;
+    text-shadow:
+        0 0 8px rgba(230, 200, 138, 0.7),
+        0 0 15px rgba(207, 168, 90, 0.4);
+}
+
+body.saturn-page .planet-info,
+body.saturn-page .info-box {
+    border-color: rgba(255, 220, 120, 0.35);
+    box-shadow:
+        0 0 20px rgba(255, 220, 120, 0.2),
+        0 0 35px rgba(220, 180, 70, 0.15);
+}
+
+body.saturn-page .info-box {
+    border: 1px solid rgba(255, 220, 120, 0.4);
+    box-shadow:
+        0 0 15px rgba(255, 220, 120, 0.2),
+        0 0 30px rgba(220, 180, 70, 0.1);
+}
+
+body.saturn-page .info-box:hover {
+    border-color: #ffe082;
+    box-shadow:
+        0 0 20px rgba(255, 220, 120, 0.4),
+        0 0 40px rgba(220, 180, 70, 0.3);
+}
+
+body.saturn-page .back-button {
+    background: rgba(255, 220, 120, 0.08);
+    border: 1px solid rgba(255, 220, 120, 0.35);
+}
+
+body.saturn-page .back-button:hover {
+    background: rgba(255, 220, 120, 0.12);
+    border-color: #ffe082;
+    box-shadow:
+        0 0 20px rgba(255, 220, 120, 0.3),
+        0 0 35px rgba(220, 180, 70, 0.25);
+}
+
+/* Страница Урана */
+
+body.uranus-page {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(170, 220, 255, 0.12) 0%,
+            rgba(120, 180, 255, 0.05) 35%,
+            transparent 70%
+        ),
+        linear-gradient(
+            rgba(3, 10, 25, 0.35),
+            rgba(2, 8, 20, 0.55)
+        ),
+        url("images/space-bg.jpg") center / cover fixed;
+}
+
+body.uranus-page .planet-big {
+    width: 280px;
+    height: 280px;
+    filter:
+        drop-shadow(0 0 20px #9fe7ff)
+        drop-shadow(0 0 45px #7ecfff);
+}
+
+body.uranus-page h1 {
+    color: #dff7ff !important;
+    text-shadow:
+        0 0 10px rgba(159, 231, 255, 0.8),
+        0 0 20px rgba(126, 207, 255, 0.5),
+        0 0 35px rgba(159, 231, 255, 0.3) !important;
+    margin-bottom: 15px;
+}
+
+body.uranus-page .planet-description,
+body.uranus-page > .planet-page > p {
+    color: #dff7ff !important;
+    text-shadow:
+        0 0 8px rgba(159, 231, 255, 0.7),
+        0 0 15px rgba(126, 207, 255, 0.4) !important;
+}
+
+body.uranus-page p {
+    color: #cfeeff;
+}
+
+body.uranus-page .planet-info,
+body.uranus-page .info-box {
+    border-color: rgba(159, 231, 255, 0.35);
+    box-shadow:
+        0 0 20px rgba(159, 231, 255, 0.2),
+        0 0 35px rgba(126, 207, 255, 0.15);
+}
+
+body.uranus-page .planet-info h2,
+body.uranus-page .info-box h2 {
+    color: #9fe7ff;
+
+}
+
+body.uranus-page .info-box {
+    border: 1px solid rgba(159, 231, 255, 0.4);
+    box-shadow:
+        0 0 15px rgba(159, 231, 255, 0.2),
+        0 0 30px rgba(126, 207, 255, 0.1);
+}
+
+body.uranus-page .info-box:hover {
+    border-color: #9fe7ff;
+    box-shadow:
+        0 0 20px rgba(159, 231, 255, 0.4),
+        0 0 40px rgba(126, 207, 255, 0.3);
+}
+
+body.uranus-page .back-button {
+    background: rgba(159, 231, 255, 0.08);
+    border: 1px solid rgba(159, 231, 255, 0.35);
+}
+
+body.uranus-page .back-button:hover {
+    background: rgba(159, 231, 255, 0.12);
+    border-color: #9fe7ff;
+    box-shadow:
+        0 0 20px rgba(159, 231, 255, 0.3),
+        0 0 35px rgba(126, 207, 255, 0.25);
+}
+
+/* Страница Нептуна */
+
+body.neptune-page {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(60, 120, 255, 0.12) 0%,
+            rgba(30, 80, 220, 0.05) 35%,
+            transparent 70%
+        ),
+        linear-gradient(
+            rgba(2, 5, 25, 0.35),
+            rgba(1, 3, 18, 0.55)
+        ),
+        url("images/space-bg.jpg") center / cover fixed;
+}
+
+body.neptune-page .planet-big {
+    width: 280px;
+    height: 280px;
+    filter:
+        drop-shadow(0 0 20px #4da3ff)
+        drop-shadow(0 0 45px #2563eb);
+}
+
+body.neptune-page h1 {
+    color: #b9d8ff !important;
+    text-shadow:
+        0 0 10px rgba(77, 163, 255, 0.8),
+        0 0 20px rgba(37, 99, 235, 0.5),
+        0 0 35px rgba(77, 163, 255, 0.3) !important;
+}
+
+/* Страница Нептуна */
+
+body.neptune-page {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(60, 120, 255, 0.12) 0%,
+            rgba(30, 80, 220, 0.05) 35%,
+            transparent 70%
+        ),
+        linear-gradient(
+            rgba(2, 5, 25, 0.35),
+            rgba(1, 3, 18, 0.55)
+        ),
+        url("images/space-bg.jpg") center / cover fixed;
+}
+
+body.neptune-page .planet-big {
+    width: 280px;
+    height: 280px;
+    filter:
+        drop-shadow(0 0 20px #4da3ff)
+        drop-shadow(0 0 45px #2563eb);
+}
+
+body.neptune-page h1 {
+    color: #b9d8ff !important;
+    text-shadow:
+        0 0 10px rgba(77, 163, 255, 0.8),
+        0 0 20px rgba(37, 99, 235, 0.5),
+        0 0 35px rgba(77, 163, 255, 0.3) !important;
+    margin-bottom: 15px;
+}
+
+body.neptune-page .planet-description,
+body.neptune-page > .planet-page > p {
+    color: #b9d8ff !important;
+    text-shadow:
+        0 0 8px rgba(77, 163, 255, 0.7),
+        0 0 15px rgba(37, 99, 235, 0.4) !important;
+}
+
+body.neptune-page p {
+    color: #d0e4ff;
+}
+
+body.neptune-page .planet-info,
+body.neptune-page .info-box {
+    border-color: rgba(77, 163, 255, 0.35);
+    box-shadow:
+        0 0 20px rgba(77, 163, 255, 0.2),
+        0 0 35px rgba(37, 99, 235, 0.15);
+}
+
+body.neptune-page .planet-info h2,
+body.neptune-page .info-box h2 {
+    color: #6bb5ff;
+}
+
+body.neptune-page .info-box {
+    border: 1px solid rgba(77, 163, 255, 0.4);
+    box-shadow:
+        0 0 15px rgba(77, 163, 255, 0.2),
+        0 0 30px rgba(37, 99, 235, 0.1);
+}
+
+body.neptune-page .info-box:hover {
+    border-color: #4da3ff;
+    box-shadow:
+        0 0 20px rgba(77, 163, 255, 0.4),
+        0 0 40px rgba(37, 99, 235, 0.3);
+}
+
+body.neptune-page .back-button {
+    background: rgba(77, 163, 255, 0.08);
+    border: 1px solid rgba(77, 163, 255, 0.35);
+}
+
+body.neptune-page .back-button:hover {
+    background: rgba(77, 163, 255, 0.12);
+    border-color: #4da3ff;
+    box-shadow:
+        0 0 20px rgba(77, 163, 255, 0.3),
+        0 0 35px rgba(37, 99, 235, 0.25);
+}
