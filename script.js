@@ -47,11 +47,16 @@ const orbits = [
         angle: 350
     }
 ];
-function animate() {
+let lastTime = performance.now();
+
+function animate(currentTime) {
+    const deltaTime = (currentTime - lastTime) / 16.67;
+    lastTime = currentTime;
+
     orbits.forEach(orbit => {
         if (!orbit.element) return;
 
-        orbit.angle += orbit.speed;
+        orbit.angle += orbit.speed * deltaTime;
 
         orbit.element.style.transform =
             `translate(-50%, -50%) rotate(${orbit.angle}deg)`;
@@ -60,4 +65,4 @@ function animate() {
     requestAnimationFrame(animate);
 }
 
-animate();
+requestAnimationFrame(animate);
