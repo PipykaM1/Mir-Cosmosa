@@ -266,7 +266,7 @@ span {
     margin: 0;
     top: 12px;
 }
-.earth img { width: 55px; height: 55px; position: relative; top: 12px; transform: translateY(-5px); }
+.earth img { width: 45px; height: 45px; position: relative; top: 12px; transform: translateY(-5px); }
 .earth span {
     position: relative;
     margin: 0;
