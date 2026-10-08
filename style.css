@@ -8,7 +8,7 @@ body {
     font-family: 'Exo 2', sans-serif !important;
     background:
         linear-gradient(rgba(2, 5, 20, 0.45), rgba(2, 5, 20, 0.65)),
-        url("images/space-bg.jpg") center / cover fixed;
+        url("images/space-bg.jpg") center / cover;
     color: white;
     min-height: 100vh;
     overflow-x: hidden;
@@ -1258,19 +1258,22 @@ body.neptune-page .back-button:hover {
 @media (max-width: 768px) {
 
     .solar-system {
-        width: 100vw;
-        height: 520px;
-        margin: 30px auto;
-        transform: scale(0.55);
+        height: 380px;
+        margin-top: 160px;
+        transform: scale(0.42);
         transform-origin: top center;
     }
 
+    header {
+        padding-top: 20px;
+    }
+
     header h1 {
-        font-size: 28px;
+        font-size: 24px;
     }
 
     header p {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .planet-cards {
