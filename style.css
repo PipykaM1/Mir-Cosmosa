@@ -160,18 +160,77 @@ span {
     top: 50%;
     border: 1px solid rgba(130, 170, 255, 0.3);
     border-radius: 50%;
-    transform: translate(-50%, -50%);
     pointer-events: none;
+
+    transform: translate(-50%, -50%) rotate(var(--start-angle));
+    animation: orbit-spin var(--orbit-time) linear infinite;
 }
 
-.orbit-mercury { width: 170px; height: 170px; }
-.orbit-venus { width: 240px; height: 240px; }
-.orbit-earth { width: 320px; height: 320px; }
-.orbit-mars { width: 400px; height: 400px; }
-.orbit-jupiter { width: 500px; height: 500px; }
-.orbit-saturn { width: 610px; height: 610px; }
-.orbit-uranus { width: 720px; height: 720px; }
-.orbit-neptune { width: 830px; height: 830px; }
+@keyframes orbit-spin {
+    from {
+        transform: translate(-50%, -50%) rotate(var(--start-angle));
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(calc(var(--start-angle) + 360deg));
+    }
+}
+
+.orbit-mercury {
+    width: 170px;
+    height: 170px;
+    --start-angle: 0deg;
+    --orbit-time: 7.5s;
+}
+
+.orbit-venus {
+    width: 240px;
+    height: 240px;
+    --start-angle: 45deg;
+    --orbit-time: 12s;
+}
+
+.orbit-earth {
+    width: 320px;
+    height: 320px;
+    --start-angle: 90deg;
+    --orbit-time: 17.14s;
+}
+
+.orbit-mars {
+    width: 400px;
+    height: 400px;
+    --start-angle: 180deg;
+    --orbit-time: 21.43s;
+}
+
+.orbit-jupiter {
+    width: 500px;
+    height: 500px;
+    --start-angle: 220deg;
+    --orbit-time: 33.33s;
+}
+
+.orbit-saturn {
+    width: 610px;
+    height: 610px;
+    --start-angle: 270deg;
+    --orbit-time: 42.86s;
+}
+
+.orbit-uranus {
+    width: 720px;
+    height: 720px;
+    --start-angle: 320deg;
+    --orbit-time: 60s;
+}
+
+.orbit-neptune {
+    width: 830px;
+    height: 830px;
+    --start-angle: 350deg;
+    --orbit-time: 85.71s;
+}
 
 /* Планеты на орбитах */
 
