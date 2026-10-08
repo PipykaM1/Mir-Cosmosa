@@ -1264,6 +1264,19 @@ body.neptune-page .back-button:hover {
         transform-origin: top center;
     }
 
+    body {
+        background:
+            linear-gradient(
+                rgba(2, 5, 20, 0.45),
+                rgba(2, 5, 20, 0.65)
+            ),
+            url("images/space-bg-mobile.jpg") center / cover;
+    }
+
+    .planet-info {
+        background-image: url("images/space-text-mobile.jpg");
+    }
+
     header {
         padding-top: 20px;
     }
